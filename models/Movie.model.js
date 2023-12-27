@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
-const Celebrity = require('/models/Celebrity.model')
+const Celebrity = require('../models/Celebrity.model')
 
 const movieSchema = new Schema({
     title: {

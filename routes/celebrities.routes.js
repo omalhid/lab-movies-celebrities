@@ -29,11 +29,11 @@ router.post('/celebrities/create', (req,res,next) => {
 })
 
 //GET route to display the loist of celebrities
-router.get('/celebrities', (req, res, next) => {
+router.get('/celebrities/celebrities', (req, res, next) => {
     Celebrity.find()
     .then((listOfCelebrities)=>{
-        console.log('list of celebrities', listOfCelebrities);
-        res.render('/celebrities/celebrities')
+        console.log('list of celebrities');
+        res.render('celebrities/celebrities', {listOfCelebrities})
     })
     .catch((err)=> console.log('error occurred while listing the celebrities ', err))
 })
