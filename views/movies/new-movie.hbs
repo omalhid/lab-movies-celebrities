@@ -14,7 +14,7 @@
         <textarea type="text" name="plot" placeholder="Describe the plot..." rows="10" cols="50"></textarea>
     <label for="">
         Cast:
-        <select name="cast" >
+        <select name="cast" multiple>
             {{#each celebrities}}
                 <option value="{{_id}}">{{name}}</option>
             {{/each}}

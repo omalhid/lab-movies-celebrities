@@ -43,4 +43,15 @@ router.get('/movies/movies', (req, res, next) => {
     .catch((err)=> console.log('error occurred while listing the movies ', err))
 })
 
+//GET route for movie details
+router.get('/movies/:id', (req,res,next) => {
+    Movie.findById(req.params.id)
+    .populate('cast')
+    .then((movie)=>{
+        res.render('movies/movie-details', movie)
+    })
+    .catch((err)=> console.log(err))
+})
+
+
 module.exports = router;
