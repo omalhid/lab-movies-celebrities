@@ -60,5 +60,27 @@ router.post('/movies/:id/delete', (req, res, next) => {
     .then(()=>res.redirect('/movies/movies'))
 })
 
+//GET route for editing movies
+router.get('/movies/:id/edit', (req,res,next) => {
+    Movie.findById(req.params.id)
+    .then((movie) => {
+        Celebrity.find()
+        then((celebrities) => {
+            res.render('movies/edit-movie' , {movie, celebrities})
+        })
+    })
+    .catch((err) => console.log(err))
+})
+
+//POST route for editing movies
+router.post('/movies/:id/edit', (req,res,next) =>{
+    const {title, genre, plot, cast} = req.body;
+    Movie.findByIdAndUpdate(req.params.id , req.body)
+    .then((update)=>{
+        res.redirect('/movies/${update._id}')
+    })
+    .catch((err)=> console.log(err))
+})
+
 
 module.exports = router;
