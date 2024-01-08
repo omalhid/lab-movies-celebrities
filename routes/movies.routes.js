@@ -45,12 +45,19 @@ router.get('/movies/movies', (req, res, next) => {
 
 //GET route for movie details
 router.get('/movies/:id', (req,res,next) => {
+
     Movie.findById(req.params.id)
     .populate('cast')
     .then((movie)=>{
-        res.render('movies/movie-details', movie)
+        res.render('movies/movie-details', { movie })
     })
     .catch((err)=> console.log(err))
+})
+
+//POST route for deleting movie
+router.post('/movies/:id/delete', (req, res, next) => {
+    Movie.findByIdAndRemove(req.params.id)
+    .then(()=>res.redirect('/movies/movies'))
 })
 
 
