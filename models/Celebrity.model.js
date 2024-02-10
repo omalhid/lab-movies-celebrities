@@ -1,15 +1,16 @@
 //  Add your code here
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const celebritySchema = new Schema({
-    name: {
-        type:String,
-        unique:true },
-    occupation: String,
-    catchPhrase: String,
-})
+  name: {
+    type: String,
+    unique: true,
+  },
+  occupation: String,
+  catchPhrase: String,
+});
 
-const Celebrity = mongoose.model ("Celebrity", celebritySchema);
+const Celebrity = mongoose.model("Celebrity", celebritySchema);
 module.exports = Celebrity;
